@@ -1,0 +1,40 @@
+p {
+    color: #a52a2a;
+    text-align: center;
+    line-height: 30px;
+}
+
+h1 {
+    color: red;
+    text-align: center;
+    font-family: Georgia;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+
+/* Ans-6 */
+
+a {
+    color: rgb(0, 255, 0);
+    text-decoration: none;
+}
+
+button {
+    background-color: white;
+    color: blueviolet;
+}
+
+
+/* hexcode for black #000000s*/
+
+textarea {
+    color: #000000;
+}
+
+span {
+    text-decoration: underline;
+}

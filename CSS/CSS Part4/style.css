@@ -1,0 +1,101 @@
+div {
+    height: 100px;
+    width: 100px;
+    background-color: #f10000;
+    /* transition-duration: 2s;
+    transition-delay: 1s; */
+    margin-top: 10px;
+    margin: 0 auto;
+    transition: margin-top 2s ease-in 0.2s;
+}
+
+#opacity {
+    background-color: orange;
+    opacity: 1;
+}
+
+div:hover {
+    background-color: blueviolet;
+    /* border-radius: 50%; */
+    margin-top: 400px;
+}
+
+section {
+    margin-top: 100px;
+}
+
+.mydiv {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: #7aa874;
+    border: 2px solid black;
+    margin: 10px auto;
+}
+
+.mydiv:nth-of-type(2n) {
+    background-color: #f7db6a;
+}
+
+.mydiv:nth-of-type(3n) {
+    background-color: #ebb02d;
+}
+
+
+/* tranform */
+
+#one {
+    transform: rotate(45deg);
+}
+
+#two {
+    transform: scale(0.5, 2);
+}
+
+#three {
+    transform: translate(-100px, 100px);
+}
+
+#four {
+    transform: skew(30deg);
+}
+
+#five {
+    transform: rotate(30deg)translateX(150px);
+}
+
+#mydiv {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    background-color: #7aa874;
+    margin: 10px auto;
+    box-shadow: 2px 2px 8px black;
+}
+
+#bgimage {
+    width: 400px;
+    height: 200px;
+    background-color: #7aa874;
+    margin: 10px auto;
+    background-image: url(pic3.jpg);
+    background-size: cover;
+    color: blue;
+}
+
+.static {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    text-align: center;
+    border: 3px solid black;
+    margin: 28px;
+    display: inline-block;
+}
+
+#static {
+    background-color: yellow;
+    position: static;
+    top: 100px;
+    left: 100px;
+}
