@@ -8,7 +8,7 @@ const ejsMate = require("ejs-mate");
 const wrapAsync =require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { listingSchema } = require("./schema.js");
-
+const Review = require("./models/review.js");
 
 const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust';
 async function main(){
@@ -25,7 +25,8 @@ main().then(() =>{
 
 
 app.get("/", (req, res) =>{
-    res.send("HI, I am Root")
+  //  res.send("HI, I am Root")
+    res.render("listings/index.ejs")
 })
 
 // app.get("/testListing", async (req, res) =>{
@@ -130,4 +131,21 @@ app.use((err, req, res , next)=>{
 })
 app.listen(8080 , ()=>{
     console.log("Server is Listening to Port 8080.");
+});
+
+//Reviews
+//POST Route
+
+app.post("/listings/:id/reviews", async(req,res) =>{
+    let listing = await Listing.findById(req.params.id);
+    let newReview = new Review(req.body.review);
+
+    listing.reviews.push(newReview);
+
+    await newReview.save();
+    await listing.save();
+
+    console.log("new review saved");
+    res.send("new review send");
 })
+
