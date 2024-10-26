@@ -1,8 +1,5 @@
-if(process.env.NODE_ENV != "production"){
-    require('dotenv').config();
-   //console.log(process.env.SECRET)
-}
 
+    require('dotenv').config();
 
 const  express = require("express");
 const app = express();
@@ -69,7 +66,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 const store = MongoStore.create({
     mongoUrl :dbUrl,
     crypto:{
-        secret :"mysupersecretstring",
+        secret :process.env.SECRET,
     },
     touchAfter : 24* 3600
 });
@@ -79,7 +76,7 @@ store.on("error", () =>{
 
 const sessionOptions = {
     store,
-    secret :"mysupersecretstring",
+    secret :process.env.Secret,
     resave : false,
     saveUninitialized : true,
     cookie :{
@@ -102,9 +99,10 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req, res , next) =>{
+     res.locals.currUser = req.user;
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-    res.locals.currUser = req.user;
+   
     //console.log( res.locals.success);
     next();
 })
