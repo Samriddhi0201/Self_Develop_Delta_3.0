@@ -1,0 +1,22 @@
+import { useState } from 'react'
+import './App.css'
+import Counter from './Counter'
+import LikeButton from './LikeButton'
+
+function App() {
+
+ 
+  return (
+    <>
+      <h1>States in React</h1>
+      <Counter/>
+      <hr />
+      <hr />
+
+      <h1>Activity : Create Like Button</h1>
+      <LikeButton/>
+    </>
+  )
+}
+
+export default App
